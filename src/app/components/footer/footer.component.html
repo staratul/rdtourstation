@@ -1,0 +1,80 @@
+<footer class="dark-bg">
+    <div class="container">
+        <div class="col-md-12">
+            <ul class="footer-menu pl-0">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Terms And Conditions</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copy">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="">© 2018–2019 TourOxy</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-right">With <i class="fa fa-heart text-danger"></i> From <a class="text-primary" href="http://www.spysr.in/">SpYsR</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--popup-START-->
+<div class="modal fade bd-example-modal-lg pr-0" id="send-enquiry" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header p-0 pr-2 border-bottom-0">
+                <!-- <h5> LOG IN</h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="row card-row-set">
+                <div class="col-md-6" style="background: #fcdf04;margin-top: -24px;">
+                    <img class="img-fluid mt-sm-5 pt-sm-5 pt-4" src="../../../assets/img/offer-1.png">
+                </div>
+                <div class="col-md-6">
+                    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+                        <div class="">
+                            <div class="travel-mail text-center">
+                                <h5>Fill Your Preferences and Get Quotes</h5>
+                                <div class="jsom-message-alert"></div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="name" name="firstName" type="text" placeholder="Your Name" id="example-name-input">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="email" name="email" type="email" placeholder="Your Email" id="example-email-input">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="phone" name="phone" type="tel" placeholder="Your Phone" id="example-phone-input">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" formControlName="from" name="destinationFrom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="From">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" formControlName="to" name="destinationTo" class="form-control" placeholder="To">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="adult" name="adult" type="number" placeholder="Number Of Passengers">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" formControlName="comment" name="requirement" rows="2" id="comment" placeholder="I am excited to go and would love to know more"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-yellow btn-block text-black" id="request-quotes-btn" data-form-name="saveRequestQuotesForm" data-modal-id="send-enquiry">Plan My Holidays</button>
+                            <p class="caption text-center">We assure the privacy of your contact data. This data will only be used by our team to contact you and no other purposes.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--popup-END-->

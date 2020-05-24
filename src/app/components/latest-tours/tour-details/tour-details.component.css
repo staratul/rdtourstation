@@ -1,0 +1,92 @@
+.count-steps-style {
+    position: relative;
+    min-width: 58px;
+    min-height: 100%;
+    margin-right: 20px;
+}
+
+.count-steps {
+    box-sizing: border-box;
+    padding-top: 2px;
+    margin-right: 20px;
+    width: 58px;
+    height: 58px;
+    text-align: center;
+    background: #fcdf02;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.days-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(36, 43, 46, 1);
+}
+
+.day-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(36, 43, 46, 1);
+}
+
+.count-steps-style:after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    left: 30px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.25);
+}
+/*sidebox*/
+
+.ratings {
+    padding: 8px 0px;
+    border-top: 1px solid rgba(221, 221, 221, 0.4);
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+    background: white;
+}
+
+.ratings span.rating_count {
+    background-color: #6ec017;
+    font-size: 12px;
+    padding: 1px 7px;
+    color: white;
+    border-radius: 2px;
+}
+
+.summary-price {
+    background-color: rgba(44, 43, 41, .9);
+    padding: 6px 15px;
+}
+
+.detail-label-1 {
+    background-color: #fff;
+    padding: 10px 10px;
+}
+
+.summary-price p {
+    color: #999;
+}
+
+.summary-price div.price-room {
+    font-size: 1.625rem;
+    color: #fff;
+}
+
+.stop-place {
+    padding: 8px 0px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+}
+
+.booking_points ul img {
+    width: 12px;
+    height: 12px;
+    object-fit: none;
+    object-position: -88px 0px;
+}
+
+.booking_points ul li span.point_name {
+    padding-left: 5px;
+    font-size: 14px;
+    color: black;
+}

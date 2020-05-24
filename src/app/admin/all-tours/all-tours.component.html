@@ -1,0 +1,38 @@
+<table class="table table-bordered bg-light shadow-sm">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Tour Title</th>
+        <th scope="col">Day</th>
+        <th scope="col">Night</th>
+        <th scope="col">expriesDate</th>
+        <th scope="col">Offers</th>
+        <th scope="col">price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="isData else loading">
+        <tr *ngFor="let tour of elementData; index as i;">
+          <td><img src="{{ tour.imageUrl1 }}" alt="" width="100px" height="100px"></td>
+          <td>{{ tour.tourTitle }}</td>
+          <td>{{ tour.day }}</td>
+          <td>{{ tour.night }}</td>
+          <td>{{ tour.expriesDate }}</td>
+          <td>{{ tour.discount_offers }}</td>
+          <td>{{ tour.discount_price }}</td>
+          <td>
+              <a (click)="editTour(tour.key)"  class="btn btn-sm btn-info rounded-0">Edit</a>
+              <a (click)="deleteTour(tour.key,tour.imageUrl1,tour.imageUrl2,tour.imageUrl3,tour.imageUrl4)" class="btn btn-sm btn-danger ml-3 rounded-0">Delete</a>
+          </td>
+        </tr>
+       </ng-container>
+       
+       <ng-template #loading>
+        <tr>
+          <td colspan="8" class="text-center">No Data Found</td>
+        </tr>
+       </ng-template>
+    </tbody>
+  </table>
+  

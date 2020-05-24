@@ -1,0 +1,124 @@
+<app-navbar></app-navbar>
+<div class="status_of_booking card" style="text-align:-webkit-center;">
+    <div class="container">
+        <div class="row"> 
+            <div class="col"></div>
+            <div class="col-md-4 col-4">
+                <div class="p spanclass firstspan orange"></div>
+                <p class="text-black">Traveler Information</p>
+            </div>
+            <div class="col-md-4 col-4">
+                <div class="p spanclass firstspan"></div>
+                <p class="text-black">Package Details</p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+<div class="section-gray">
+    <div class="container">
+        <div class="text-center">
+            <h4>{{ tour_details.tourTitle }}</h4>
+            <div class="text-muted ratings mb-4"> 
+                <span class="day"><i class="fa fa-sun-o" aria-hidden="true"></i>  {{ tour_details.day }} Days / </span>
+                <span class="night"><i class="fa fa-moon-o" aria-hidden="true"></i> {{ tour_details.night }} Nights </span> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                    <div class="bg-light p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-center text-black border-bottom pb-3 mb-3">Traveler Information</h4>
+                            </div>
+                        </div>
+                        <form action="" id="contact-us" method="post">
+                            <div class="form-group">
+                                <label class="text-black">Your Name <span style="color:red">*</span></label>
+                                <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Enter Name" required="required" value="{{ userData.first_name }} {{ userData.last_name }}"> 
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="text-black">Email address <span style="color:red">*</span></label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email" required="required" value="{{ userData.email }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-black">Your Phone <span style="color:red">*</span></label>
+                                <input type="number" maxlength="12" name="phone" id="mobile" class="form-control" placeholder="Enter Your Number" required="required" value="{{ userData.mobile }}">
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+            
+            <div class="col-md-4">
+                    <div class="bg-light p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="text-center text-black border-bottom pb-3 mb-3">Select Tour Date</h4>
+                            </div>
+                        </div>
+                        <form> 
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="text-black">Select Tour Date <span style="color:red">*</span></label>
+                                <input type="date" class="form-control" id="tour_date">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="text-black">Travellers</label>
+                                <div class="AdultShow text-left">
+                        <div class="custom-qty text-muted">
+                            <span>Adult </span>
+                            <button class="btn btn-primary" (click)="adultSub()" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty > 1 ) result.value--;return false;"> <i class="fa fa-minus"></i> </button>
+                            <input type="number" class="qty-input" id="qty"  value="1" title="Qty">
+                            <button class="btn btn-primary" (click)="adultAdd()" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"> <i class="fa fa-plus"></i> </button>
+                            <span> Age: Above 16 Full</span>
+                        </div>
+                        <div class="custom-qty text-muted mt-4">
+                            <span>Child </span>
+                            <button class="btn btn-primary"(click)="childSub()" onclick="var result = document.getElementById('qty1'); var qty = result.value; if( !isNaN( qty ) && qty > 0 ) result.value--;return false;"> <i class="fa fa-minus"></i> </button>
+                            <input type="number" class="qty-input" id="qty1" value="0" title="Qty">
+                            <button class="btn btn-primary" (click)="childAdd()" onclick="var result = document.getElementById('qty1'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"> <i class="fa fa-plus"></i> </button>
+                            <span> Age: 8 - 16 Half</span>
+                        </div>
+                    </div>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+            
+            
+             
+            <div class="col-md-4">
+                <div class="card banner_right_data"> 
+                    <div class="col-md-12">
+                                <h4 class="text-center text-black border-bottom pb-3 mb-3">Pricing</h4>
+                            </div>
+                    <div class="">
+                        <div class="row"> 
+                            <div class="col-md-12">
+                                <span class="float-right" id="original_price"> <i class="fa fa-fw fa-inr"></i>{{ tour_details.discount_price }}</span>
+                                <p>Price Per Person</p>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="float-right" id="adult_price_change"> 1</span>
+                                <p>Adults</p>
+                            </div> 
+                            <div class="col-md-12">
+                                <span class="float-right" id="child_price_change"> 0</span>
+                                <p>Child</p>
+                            </div>
+                            <div class="col-md-12 border-top border-bottom pt-2">
+                                <span class="float-right text-danger"> 
+                                <i class="fa fa-fw fa-inr"></i><span id="total_tour_price">{{ tour_details.discount_price }}</span></span>
+                                <p>Total Price</p>
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <a (click)="onProceedSubmit()" class="btn btn-yellow btn-block">Proceed</a>
+                            </div>
+                        </div> 
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<app-footer></app-footer>

@@ -1,0 +1,166 @@
+<app-navbar></app-navbar>
+<div class="section-parallax">
+    <div class="section-parallax-bg pt-4 pb-4">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <hr class="section_header-divider">
+                    <h1 class="col-heading">{{ tour_details.tourTitle }}</h1>
+                    <p class="section-description">{{ tour_details.night }} Night {{ tour_details.day }} Days {{ tour_details.caption }} - Munnar -Thekkady - Alleppey</p>
+                    <div class="d-sm-none d-block mb-3"><a class="btn btn-default bg-white text-black" data-toggle="modal" data-target="#gallery"><i class="material-icons float-left">filter_vintage</i> View Gallary</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-black">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-8 pt-0">
+                <div id="demo" class="carousel slide d-sm-block d-none" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ tour_details.imageUrl1 }}" alt="Los Angeles" width="100%" height="482">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ tour_details.imageUrl2 }}" alt="Chicago" width="100%" height="482">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ tour_details.imageUrl3 }}" alt="New York" width="100%" height="482">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="summarybackcolor">
+                    <div class="bg-dark mb-2 p-3">
+                        <div class="text-white"><i class="material-icons float-left font-20 mr-2">timer</i> <span>Offer ends in {{ offerExpries }} days</span></div>
+                    </div>
+                    <div class="ratings p-2">
+                        <i class="fa fa-star text-warning" aria-hidden="true" *ngFor="let r of rating"></i> 
+                        <!-- <i class="fa fa-star text-warning" aria-hidden="true"></i> 
+                        <i class="fa fa-star text-warning" aria-hidden="true"></i> 
+                        <i class="fa fa-star text-warning" aria-hidden="true"></i> 
+                        <i class="fa fa-star text-warning" aria-hidden="true"></i> -->
+                        <span class="rating_count float-right text-white">{{ tour_details.rating }}.0</span>
+                    </div>
+                    <div class="detail-label-1 text-black">
+                        <div class="row">
+                            <div class="col-md-6 col-6">
+                                <p class="font-12 text-muted mb-0"> VALUED UP TO</p>
+                                <h3 class="mb-0 text-black"><i class="fa fa-inr"></i> {{ tour_details.discount_price }}.00</h3>
+                            </div>
+
+                            <div class="col-md-6 col-6">
+                                <p class="font-12 mb-1 text-muted ml-4">YOU SAVE</p>
+                                <div class="price_left">
+                                    <span class="discount-Percent">{{ tour_details.discount_offers }} %</span><span class="discounted_price float-right"><i class="fa fa-inr"></i>  <span>{{ tour_details.original_price }}.00</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="booking_points">
+                            <ul class="pl-0 mb-2" style="list-style-type:  none;">
+                                <li> <img alt="Sprite" src="../../../assets/img/download.png"><span class="point_name">No Booking Fees</span></li>
+                                <li> <img alt="Sprite" src="../../../assets/img/download.png"><span class="point_name">Money Safe Guarantee</span></li>
+                                <li> <img alt="Sprite" src="../../../assets/img/download.png"><span class="point_name">Instant Confirmation Voucher</span></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="summary-price">
+                            <div class="stop-place text-yellow">
+                                <i class="fa fa-sun-o" aria-hidden="true"></i>
+                                <span class="text"> {{ tour_details.day }} Days </span>
+                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                                <span class="text"> {{ tour_details.night }} Nights</span>
+                            </div>
+                            <div class="price-room"><i class="fa fa-inr" aria-hidden="true"></i> {{ tour_details.discount_price }}.00
+                                <span>/person</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 mt-2 pr-sm-2">
+                                <a href="#send-enquiry" class="btn btn-yellow w-100" data-toggle="modal" data-target="#send-enquiry">Send Enquiry</a>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mt-2 pl-sm-2">
+                                <a [routerLink]="['/booking-package',tourKey]" routerLinkActive="router-link-active"  class="btn btn-yellow w-100">Book</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-light p-2 mb-5 text-black">
+            <p class="font-22 text-center p-2 dark-gray-box text-white">Highlights</p>
+            <p class="caption"><strong> {{ tour_details.tourTitle }} </strong> - Romantic Escapes </p>
+            <p class="caption"><strong> Brief : </strong>{{ tour_details.caption }} </p>
+            <p class="caption"><strong>Destinations : </strong> {{ tour_details.highlights }}</p>
+        </div>
+        <div class="bg-light p-2 mb-5">
+            <p class="font-22 text-center p-2 dark-gray-box text-white">Itinerary</p>
+            <div class="row mt-4" *ngFor="let iti of itineraryArray; index as i;">
+                <div class="col-md-1 col-2">
+                    <div class="count-steps-style">
+                        <div class="count-steps">
+                            <div class="days-number">{{i+1}}</div>
+                            <div class="day-text">DAY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-11 col-10">
+                    <h2 class="text-black font-18 pt-3 pb-3 border-top border-bottom">{{ iti['day'] }}</h2>
+                    <p class="text-muted font-14 pt-2">{{ iti['description'] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="section-black pt-4">
+    <div class="col-md-12 text-center mb-5">
+        <div class="col-md-12 text-center mb-5">
+            <hr class="section_header-divider">
+            <h1 class="col-heading">A little bit more about TOUROXY.</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h1 class="col-heading">100% price transparency</h1>
+                <p class="section-description">We find and compare billions of real time prices on flights, hotels and cars so you get the best deals – and we don’t add any fees</p>
+            </div>
+            <div class="col-md-4">
+                <h1 class="col-heading">You are anonymous</h1>
+                <p class="section-description">The prices you see are never affected by your searches, no matter how many you make, and we don’t sell your data to any third parties</p>
+            </div>
+            <div class="col-md-4">
+                <h1 class="col-heading">Free and independent</h1>
+                <p class="section-description">We don’t sell anything – that’s why we’re completely free to use (and we’re endorsed by Frommer’s, CNN, and the New York Times)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

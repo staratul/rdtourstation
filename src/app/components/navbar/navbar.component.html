@@ -1,0 +1,40 @@
+<!--Navbar Section Start-->
+<nav class="navbar navbar-expand-lg navbar-black bg-black">
+    <a class="navbar-brand" href="#"><img class="img-fluid" src="../../../assets/img/logo.png" width="220" height="30"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link ml-4 font-18 text-secondary" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ml-4 font-18 text-secondary" [routerLink]="['/tours']" routerLinkActive="router-link-active" >Tours</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ml-4 font-18 text-secondary" [routerLink]="['/about-us']" routerLinkActive="router-link-active" >About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ml-4 font-18 text-secondary" [routerLink]="['/contact-us']" routerLinkActive="router-link-active" >Contact Us</a>
+            </li>
+        </ul>
+    </div>
+    <form class="form-inline" *ngIf="isNotLoggin">
+        <a class="nav-link ml-0 font-18 text-muted" href=""><i class="material-icons nav-icon float-left mr-2 p-1 bg-yellow rounded-circle text-black">phone</i> +91 1234567890</a>
+        <a class="nav-link ml-0 font-18 text-muted" [routerLink]="['/login']" routerLinkActive="router-link-active" ><i class="material-icons nav-icon float-left mr-2 p-1 bg-yellow rounded-circle text-black">perm_identity</i> Login / Signup</a>
+    </form>
+    <form class="form-inline" *ngIf="isLoggin">
+        <ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link  ml-5 font-18 text-secondary dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="userEmail != null">
+                    {{ userEmail }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="javascript:;" (click)="logout()">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </form>
+</nav>
+<!--Navbar Section Start-->

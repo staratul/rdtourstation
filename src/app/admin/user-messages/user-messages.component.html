@@ -1,0 +1,65 @@
+<table class="table table-bordered bg-light shadow-sm">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Message</th>
+        <th scope="col">Reply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="isData else loading">
+        <tr *ngFor="let msg of messages; index as i;">
+          <td>{{ msg.name }}</td>
+          <td>{{ msg.email }}</td>
+          <td>{{ msg.phone }}</td>
+          <td>{{ msg.subject }}</td>
+          <td>
+              <a *ngIf="msg.isReply else sent" href="javascript:;" class="btn btn-default rounded-0 disabled">Sent!</a>
+              <ng-template #sent>
+                <a class="btn btn-primary text-white rounded-0" (click)="sendMessage(msg.key,msg.name,msg.email,msg.phone,msg.subject)" data-toggle="modal" data-target="#exampleModalCenter">Enter Reply</a>
+              </ng-template>
+          </td>
+        </tr>
+       </ng-container>
+       
+       <ng-template #loading>
+        <tr>
+          <td colspan="8" class="text-center">No Data Found</td>
+        </tr>
+       </ng-template>
+    </tbody>
+  </table>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="formTemplate" (submit)="sendReply(formTemplate.value)">
+        <div class="modal-body">
+            <div class="form-group">
+              <input type="hidden" formControlName="contact_key" id="contact_key">
+              <input type="hidden" formControlName="user_name" id="user_name">
+              <input type="hidden" formControlName="user_phone" id="user_phone">
+              <input type="hidden" formControlName="user_email" id="user_email">
+              <input type="hidden" formControlName="user_message" id="user_message">
+              <label>Reply</label>
+              <textarea class="form-control" formControlName="reply" placeholder="Write Your Reply..."></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-success">Send Reply</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

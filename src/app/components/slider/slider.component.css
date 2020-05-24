@@ -1,0 +1,70 @@
+.carousel-control-next {
+    left: 52%;
+    height: 120px;
+    width: 120px;
+    top: 65%;
+    background: black;
+    opacity: 1;
+    border-radius: 60%;
+}
+
+.carousel-control-prev {
+    left: 42%;
+    height: 120px;
+    width: 120px;
+    top: 65%;
+    background: black;
+    opacity: 1;
+    border-radius: 60%;
+}
+
+.prev-icon {
+    transition: all 0.25s ease-in-out;
+}
+
+.next-icon {
+    transition: all 0.25s ease-in-out;
+}
+
+.down-icon {
+    transition: all 0.25s ease-in-out;
+}
+
+.carousel-control-prev:hover .prev-icon {
+    transition: all 0.35s ease-in-out;
+    transform: translateX(-20px);
+}
+
+.carousel-control-next:hover .next-icon {
+    transition: all 0.35s ease-in-out;
+    transform: translateX(20px);
+}
+
+.carousel-control-See-more:hover .down-icon {
+    transition: all 0.35s ease-in-out;
+    transform: translateY(20px);
+}
+
+.carousel-caption {
+    position: absolute;
+    width: 50%;
+    top: 0px;
+    bottom: 0px;
+    left: 0%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #767676;
+    text-align: left;
+    background: #fff;
+    font-size: 22px;
+    padding: 80px 100px;
+}
+
+.carousel-item {
+    height: 850px;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}

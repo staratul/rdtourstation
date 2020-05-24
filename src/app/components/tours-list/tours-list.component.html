@@ -1,0 +1,107 @@
+<app-navbar></app-navbar>
+<div class="section-black">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <hr class="section_header-divider">
+                <h1 class="col-heading">Best Deals & Popular Packages</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-black pt-0">
+    <div class="container">
+        <div class="row m-0">
+            <div class="mb-4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card mb-4 mt-4" *ngFor="let item of ImageDetails">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img class="trip-timeline-image" src="{{ item.imageUrl1 }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5 class="card-title mb-2 mt-2"><a href="#!" class="text-black font-20 font-weight-500"> {{ item.tourTitle }}</a></h5>
+                                        <div class="text-success font-14" style="padding: 0px;"> <i class="fa fa-moon-o text-primary"></i> {{ item.night }} Night / <i class="fa fa-sun-o text-primary"></i> {{ item.day }} Days </div>
+                                        <div class="text-danger font-14 mt-2" style="padding: 0px;"> {{ item.tourTitle }} </div>
+                                        <p class="text-muted font-14 two-line-text mb-3 border-bottom">
+                                            {{ item.caption }}.
+                                        </p>
+                                        <h5 class="text-black font-15"> Good <span class="reviews-float-right text-white font-12"> {{ item.rating }}.0 </span></h5>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="border p-2">
+                                            <div class="text-center">
+                                                <p class="text-black mb-0">On Request</p>
+                                                <div class="border-bottom" *ngIf="item.rating == 1">
+                                                    <i class="fa fa-star font-12 text-warning" aria-hidden="true"></i>
+                                                    <i class="fa fa-star font-12 text-muted" aria-hidden="true" *ngFor="let i of four"></i>
+                                                </div>
+                                                <div class="border-bottom" *ngIf="item.rating == 2">
+                                                    <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of two"></i>
+                                                    <i class="fa fa-star font-12 text-muted" aria-hidden="true" *ngFor="let i of three"></i>
+                                                </div>
+                                                <div class="border-bottom" *ngIf="item.rating == 3">
+                                                    <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of three"></i>
+                                                    <i class="fa fa-star font-12 text-muted" aria-hidden="true" *ngFor="let i of two"></i>
+                                                </div>
+                                                <div class="border-bottom" *ngIf="item.rating == 4">
+                                                    <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of four"></i>
+                                                    <i class="fa fa-star font-12 text-muted" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="border-bottom" *ngIf="item.rating == 5">
+                                                    <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of five"></i>
+                                                </div>
+                                                <small class="text-muted mt-2"> Starting From</small>
+                                                <h4 class="text-black mt-2"><i class="fa fa-inr" aria-hidden="true"></i> {{ item.discount_price }}</h4>
+                                            </div>
+                                            <span class="discounted_price text-left text-muted">
+                                            <span class="discount-Percent">{{ item.discount_offers }}% off</span>
+                                            <i class="fa fa-inr"></i> <span> {{ item.original_price }} </span>
+                                            </span>
+                                            <div class="mt-2">
+                                                <a data-toggle="modal" data-target="#send-enquiry" href="#!" class="btn btn-sm btn-gray btn-block">Send Enquiry</a>
+                                            </div>
+                                            <div class="mt-2">
+                                                <a [routerLink]="['/tour-details', item.key]" routerLinkActive="router-link-active" class="btn btn-sm btn-yellow btn-block">Check Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section-black pt-4">
+    <div class="col-md-12 text-center mb-5">
+        <div class="col-md-12 text-center mb-5">
+            <hr class="section_header-divider">
+            <h1 class="col-heading">A little bit more about TOUROXY.</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h1 class="col-heading">100% price transparency</h1>
+                <p class="section-description">We find and compare billions of real time prices on flights, hotels and cars so you get the best deals – and we don’t add any fees</p>
+            </div>
+            <div class="col-md-4">
+                <h1 class="col-heading">You are anonymous</h1>
+                <p class="section-description">The prices you see are never affected by your searches, no matter how many you make, and we don’t sell your data to any third parties</p>
+            </div>
+            <div class="col-md-4">
+                <h1 class="col-heading">Free and independent</h1>
+                <p class="section-description">We don’t sell anything – that’s why we’re completely free to use (and we’re endorsed by Frommer’s, CNN, and the New York Times)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

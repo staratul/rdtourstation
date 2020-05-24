@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<div class="status_of_booking card" style="text-align:-webkit-center;">
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-md-4 col-4">
+                <div class="p spanclass firstspan orange"></div>
+                <p class="text-black">Traveler Information</p>
+            </div>
+            <div class="col-md-4 col-4">
+                <div class="p spanclass firstspan orange"></div>
+                <p class="text-black">Package Details</p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+<section class="section-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <div class="card banner_right_data">
+                    <div class="border-bottom">
+                        <h4>01. Contact Information <a [routerLink]="['/booking-package',tourKey]" routerLinkActive="router-link-active"  class="font-16 float-right btn btn-info">Edit</a> </h4>
+                    </div>
+                    <div class="filled-info-block row">
+                        <p class="col-md-4">Name : <span class="booking_name_preview">{{ userData.first_name }} {{ userData.last_name }}</span></p>
+                        <p class="col-md-5">Email : <span class="booking_email_preview">{{ userData.email }}</span></p>
+                        <p class="col-md-3">Phone : <span class="booking_phone_preview">{{ userData.mobile }}</span></p>
+                    </div>
+                    <br>
+                    <div class="border-bottom">
+                        <h5>02. Review Your Ticket </h5>
+                    </div>
+
+                    <div class="package-details">
+                        <img class="top-img" src="{{ tour_details.imageUrl1 }}" alt="">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="vertical-align: bottom;padding: 15px;">
+                                        <div class="Package-Name">Package Name</div>
+                                        <div class="place">{{ tour_details.tourTitle }}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="full-details">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <tr class="border-dotted">
+                                            <td colspan="2">
+                                                <div class="Package-Name">Travel Date</div>
+                                                <div class="text" style="padding-bottom: 15px;">{{ tour_date }} <br></div>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table><br>
+                            <h6 class="pb-2 border-bottom mb-2">Payment Summary</h6>
+                            <div class="row">
+                            <div class="col-md-12">
+                                <span class="float-right"> <i class="fa fa-fw fa-inr"></i>{{ tour_details.disount_price }}</span>
+                                <p>Price Per Person</p>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="float-right"> {{ booking_detail.adult }}</span>
+                                <p>Adults</p>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="float-right"> {{ booking_detail.child }}</span>
+                                <p>Child</p>
+                            </div>
+                            <div class="col-md-12 border-top border-bottom pt-2">
+                                <span class="float-right text-danger font-weight-bold"> <i class="fa fa-inr"></i>{{ booking_detail.total_price }}</span>
+                                <p class="text-black font-weight-bold">Net Payable Amount :</p>
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <div class="text-center">
+                            <a [routerLink]="['/payment',bookingKey,tourKey]" routerLinkActive="router-link-active" class="btn btn-yellow" id="ContinueBooking">Agree & Continue</a>
+                        </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

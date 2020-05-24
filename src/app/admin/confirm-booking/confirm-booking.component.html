@@ -1,0 +1,37 @@
+<table class="table table-bordered bg-light shadow-sm">
+    <thead>
+      <tr>
+        <th scope="col">Tour Title</th>
+        <th scope="col">Child</th>
+        <th scope="col">Adult</th>
+        <th scope="col">Tour Date</th>
+        <th scope="col">Price</th>
+        <th scope="col">Email</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="isData else loading">
+        <tr *ngFor="let book of confirmBooking; index as i;">
+          <td>{{ book.booking_details.tour_details.title }}</td>
+          <td>{{ book.booking_details.child }}</td>
+          <td>{{ book.booking_details.adult }}</td>
+          <td>{{ book.booking_details.tour_date }}</td>
+          <td>{{ book.booking_details.total_price }}</td>
+          <td>{{ book.booking_details.user_detals.email }}</td>
+          <td>{{ book.booking_details.user_detals.first_name }} {{ book.booking_details.user_detals.last_name }}</td>
+          <td>
+              <a (click)="bookingConfirm(book)" class="btn btn-primary rounded-0 text-white">Confirm</a>
+          </td>
+        </tr>
+       </ng-container>
+       
+       <ng-template #loading>
+        <tr>
+          <td colspan="8" class="text-center">No Data Found</td>
+        </tr>
+       </ng-template>
+    </tbody>
+  </table>
+  

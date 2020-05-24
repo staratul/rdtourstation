@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<!-- contact us -->
+<div class="section-parallax">
+    <div class="section-parallax-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-12 mb-4">
+                        <h1 class=""> Get in Touch </h1>
+                        <p class="caption text-gray">You can contact us with anything related to our Products. We'll get in touch with you as soon as possible. </p>
+
+                        <h3 class="font-weight-light font-25 mt-4"> <i class="material-icons font-2rem float-left mr-2 text-yellow">pin_drop</i> Find us at the office </h3>
+                        <div class="">
+                            <p class="caption text-gray">E-178, Sector -63, E Block, Sector 63, Noida, Uttar Pradesh 201307, India</p>
+                        </div>
+
+                        <h3 class="font-weight-light font-25 mt-4"> <i class="material-icons font-2rem float-left mr-2 text-yellow">phone</i> Give us a Ring </h3>
+                        <div class="">
+                            <p class="caption text-gray mb-0">Yogesh Sharma</p>
+                            <p class="caption text-gray mb-0">+91 8510961059</p>
+                            <p class="caption text-gray mb-0">8800-2200</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="text-center caption text-black border-bottom pb-3 mb-3">Contact Info</h3>
+                            </div>
+                        </div>
+                        <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+                            <div class="form-group">
+                                <label class="text-black">Your Name</label>
+                                <input type="text" formControlName="name" class="form-control" placeholder="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="text-black">Email address</label>
+                                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-black">Your Phone</label>
+                                <input type="number" class="form-control" formControlName="phone" placeholder="Phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="text-black">Message</label>
+                                <textarea class="form-control" formControlName="subject" id="subject" placeholder="Message"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-yellow text-black btn-block">SEND</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- contact us -->
+
+<app-footer></app-footer>

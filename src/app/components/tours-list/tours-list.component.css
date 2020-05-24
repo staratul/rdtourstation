@@ -1,0 +1,18 @@
+.filter-fixed-top {
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100%;
+    background: #777777 !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .filter-fixed-top {
+        width: 100%;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+}

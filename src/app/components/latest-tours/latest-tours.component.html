@@ -1,0 +1,55 @@
+<div class="section-black pt-0">
+    <div class="container" style="zoom:1.2">
+        <div class="row m-0">
+            <div class="dark-gray-box mb-4">
+                <hr class="section_header-divider">
+                <h1 class="col-heading">Latest Tours</h1>
+                <div class="row">
+                    <div class="col-sm-6" *ngFor="let item of ImageDetails">
+                        <div class="card mb-2 mt-2">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img class="trip-timeline-image2" src="{{ item.imageUrl1 }}">
+                                    </div>
+                                    <div class="col-md-7 pl-sm-0">
+                                        <h5 class="card-title mb-2"><a href="#!" class="text-muted font-18 font-weight-500"> {{ item.tourTitle }}</a></h5>
+                                        <div class="text-muted font-14 two-line-text text-secondary font-14" style="padding: 0px;"> {{ item.night }} Night {{ item.day }} Days {{ item.caption }} </div>
+                                        <div class="float-right mt-2" *ngIf="item.rating == 3">
+                                            <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of three"></i>
+                                            <i class="fa fa-star font-12 text-muted" aria-hidden="true" *ngFor="let i of two"></i>
+                                        </div>
+                                        <div class="float-right mt-2" *ngIf="item.rating == 2">
+                                            <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of two"></i>
+                                            <i class="fa fa-star font-12 text-muted" aria-hidden="true" *ngFor="let j of three"></i>
+                                        </div>
+                                        <div class="float-right mt-2" *ngIf="item.rating == 4">
+                                            <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of four"></i>
+                                            <i class="fa fa-star font-12 text-muted" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="float-right mt-2" *ngIf="item.rating == 1">
+                                            <i class="fa fa-star font-12 text-warning" aria-hidden="true" ></i>
+                                            <i class="fa fa-star font-12 text-muted" aria-hidden="true" *ngFor="let i of four"></i>
+                                        </div>
+                                        <div class="float-right mt-2" *ngIf="item.rating == 5">
+                                            <i class="fa fa-star font-12 text-warning" aria-hidden="true" *ngFor="let i of five"></i>
+                                        </div>
+                                        <h4 class="text-black mt-2"><i class="fa fa-inr" aria-hidden="true"></i> {{ item.discount_price }}</h4>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12 mt-2 pr-sm-2">
+                                                <a data-toggle="modal" data-target="#send-enquiry" href="#!" class="btn btn-sm btn-gray btn-block">Send Enquiry</a>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 mt-2 pl-sm-2">
+                                                <a [routerLink]="['/tour-details', item.key]" routerLinkActive="router-link-active"  class="btn btn-sm btn-yellow btn-block">Check Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

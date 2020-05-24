@@ -1,0 +1,106 @@
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Edit Tour - {{tourDetails.tourTitle}}</h1>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label class="">Select File to upload</label>
+                                <input 
+                                    accept="image/*" 
+                                    type="file" 
+                                    class="form-control-file" 
+                                    formControlName="imageUrl1" 
+                                    multiple (change)="showPreview($event)">
+                                <div class="alert alert-danger" *ngIf="isSubmitted && formControls.imageUrl1.errors?.required">This fields is required</div>
+                                <input accept="image/*" type="hidden" formControlName="imageUrl2">
+                                <input accept="image/*" type="hidden" formControlName="imageUrl3">
+                                <input accept="image/*" type="hidden" formControlName="imageUrl4">
+                            </div>
+                            <div class="form-row col text-center">
+                                <div class="col">
+                                    <img [src]="imgSrc1" width="100" height="100px">
+                                </div>
+                                <div class="col">
+                                    <img [src]="imgSrc2" width="100" height="100px">
+                                </div>
+                            </div>
+                            <div class="form-row col text-center">
+                                <div class="col">
+                                    <img [src]="imgSrc3" width="100" height="100px">
+                                </div>
+                                <div class="col">
+                                    <img [src]="imgSrc4" width="100" height="100px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-4">
+                            <div class="col form-group">
+                                <label>Image Title</label>
+                                <input class="form-control" formControlName="tourTitle" placeholder="Tour Title">
+                                <div class="alert alert-danger" *ngIf="isSubmitted && formControls.tourTitle.errors?.required">This fields is required</div>
+                            </div>
+                            <div class="col">
+                                <label>Original Price</label>
+                                <input type="number" min="0" formControlName="original_price" class="form-control" placeholder="Enter Price" id="original_price">
+                            </div>
+                        </div>
+                        <div class="form-row mt-2">
+                            <div class="col form-group">
+                                <label>Discount Offers</label>
+                                <input type="text" class="form-control" min="1" max="99" formControlName="discount_offers" placeholder="Offers" (keyup)="priceDiscount()" id="discount_offers">
+                            </div>
+                            <div class="col">
+                                <label>Discount Price</label>
+                                <input type="number" min="0" formControlName="discount_price" class="form-control" placeholder="Enter Price" readonly id="discount_price">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label>Day</label>
+                                <input type="number" min="0" formControlName="day" class="form-control" placeholder="Enter Day">
+                            </div>
+                            <div class="col">
+                                <label>Night</label>
+                                <input type="number" min="0" formControlName="night" class="form-control" placeholder="Enter Night">
+                            </div>
+                        </div>
+                        <div class="form-row mt-3">
+                            <div class="col">
+                                <label>--Select Rating--</label>
+                                <select class="custom-select" formControlName="rating">
+                                  <option value="" selected disabled>Select Raging</option>
+                                  <option *ngFor="let rating of ratings" [ngValue]="rating">*{{ rating}}</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label>Offers Expries Date</label>
+                                <input type="date" class="form-control" formControlName="expriesDate" placeholder="Expries Date">
+                            </div>
+                        </div>
+                        <div class="form-group mt-4">
+                            <label>Caption</label>
+                            <textarea class="form-control" formControlName="caption" placeholder="Caption"></textarea>
+                        </div>
+                        <div class="form-group mt-4">
+                            <label>Highlights Destinations</label>
+                            <textarea class="form-control" formControlName="destinations" placeholder="Highlights Destinations"></textarea>
+                        </div>
+                        <div id="itineraryTextBox">
+                            
+                        </div>
+                        <div class="form-group mt-4">
+                            <button type="button" (click)="deleteItinerary()" class="btn btn-danger rounded-bottom shadow-sm float-left">Remove</button>
+                            <button type="button" (click)="addItinerary()" class="btn ml-5 btn-info rounded-bottom shadow-sm float-left">Add Itinerary +</button>
+                            <button type="submit" class="btn btn-success rounded-bottom shadow-sm float-right">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
