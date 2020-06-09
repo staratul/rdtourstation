@@ -1,0 +1,26 @@
+<table class="table table-bordered bg-light shadow-sm">
+  <thead>
+    <tr>
+      <th scope="col">User Name</th>
+      <th scope="col">Opinion</th>
+      <th scope="col">Goal</th>
+      <th scope="col">Feedback</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="isData else loading">
+      <tr *ngFor="let feed of feedbacks; index as i;">
+        <td>{{ feed.name }}</td>
+        <td>{{ feed.opinion }}</td>
+        <td>{{ feed.goal }}</td>
+        <td>{{ feed.feedback }}</td>
+      </tr>
+     </ng-container>
+     
+     <ng-template #loading>
+      <tr>
+        <td colspan="3" class="text-center">No Feedback Found</td>
+      </tr>
+     </ng-template>
+  </tbody>
+</table>

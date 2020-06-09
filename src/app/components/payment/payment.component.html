@@ -16,20 +16,20 @@
                   <i class="fa fa-cc-discover" style="color:orange;"></i>
                 </div>
                 <label for="cname">Name on Card</label>
-                <input type="text" id="cname" formControlName="cardname" placeholder="John More Doe">
+                <input type="text" id="cname" formControlName="cardname" required placeholder="John More Doe">
                 <label for="ccnum">Credit card number</label>
-                <input type="text" id="ccnum" formControlName="cardnumber" placeholder="1111-2222-3333-4444">
+                <input type="text" id="ccnum" required formControlName="cardnumber" placeholder="1111-2222-3333-4444">
                 <label for="expmonth">Exp Month</label>
-                <input type="text" id="expmonth" formControlName="expmonth" placeholder="September">
+                <input type="text" id="expmonth" required formControlName="expmonth" placeholder="September">
     
                 <div class="row">
                   <div class="col-50">
                     <label for="expyear">Exp Year</label>
-                    <input type="text" id="expyear" formControlName="expyear" placeholder="2018">
+                    <input type="text" id="expyear" required formControlName="expyear" placeholder="2018">
                   </div>
                   <div class="col-50">
                     <label for="cvv">CVV</label>
-                    <input type="text" id="cvv" formControlName="cvv" placeholder="352">
+                    <input type="text" id="cvv" required formControlName="cvv" placeholder="352">
                   </div>
                 </div>
               </div>

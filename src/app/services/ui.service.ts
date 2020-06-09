@@ -9,15 +9,21 @@ import { map } from 'rxjs/operators';
 export class UiService {
 
   contactDetails: AngularFireList<any>;
+  userFeedback: AngularFireList<any>;
   enqueryDetails: AngularFireList<any>;
 
   constructor(private firebase:AngularFireDatabase) {
     this.contactDetails = this.firebase.list('messages');
+    this.userFeedback = this.firebase.list('feedback');
     this.enqueryDetails = this.firebase.list('enquery');
    }
 
   contactUs(data){
     return this.contactDetails.push(data);
+  }
+
+  feedback(data){
+    return this.userFeedback.push(data);
   }
 
   enquery(data){
@@ -34,6 +40,14 @@ export class UiService {
 
   getMessagesList() {
     return this.contactDetails.snapshotChanges().pipe(
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
+  }
+
+  getFeedbackList() {
+    return this.userFeedback.snapshotChanges().pipe(
       map(changes => 
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )

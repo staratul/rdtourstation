@@ -41,6 +41,8 @@ import { BookingReviewComponent } from './components/booking-package/booking-rev
 import { BookingPackageComponent } from './components/booking-package/booking-package.component';
 
 import { ConfirmBookingComponent } from './admin/confirm-booking/confirm-booking.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { UserFeedbackComponent } from './admin/user-feedback/user-feedback.component';
 
 
 @NgModule({
@@ -69,7 +71,9 @@ import { ConfirmBookingComponent } from './admin/confirm-booking/confirm-booking
     UserMessagesComponent,
     BookingReviewComponent,
     BookingPackageComponent,
-    ConfirmBookingComponent
+    ConfirmBookingComponent,
+    FeedbackComponent,
+    UserFeedbackComponent
   ],
   imports: [
     BrowserModule,

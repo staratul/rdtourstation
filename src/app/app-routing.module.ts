@@ -1,3 +1,4 @@
+import { UserFeedbackComponent } from './admin/user-feedback/user-feedback.component';
 import { ConfirmBookingComponent } from './admin/confirm-booking/confirm-booking.component';
 import { BookingPackageComponent } from './components/booking-package/booking-package.component';
 import { BookingReviewComponent } from './components/booking-package/booking-review/booking-review.component';
@@ -20,6 +21,7 @@ import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
@@ -30,9 +32,9 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'about-us', component: AboutComponent},
   {path: 'contact-us', component: ContactComponent},
+  {path: 'feedback', component: FeedbackComponent},
   {path: 'tours', component: ToursListComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'tour-details/:key', component: TourDetailsComponent},
   {path: 'booking-review/:key1/:key2', component: BookingReviewComponent, canActivate: [AuthGuardService]},
@@ -46,6 +48,7 @@ const routes: Routes = [
     { path: 'all-users', component: AllUsersComponent, canActivate: [AdminGuardService]},
     { path: 'user-enquery', component: UserEnqueryComponent, canActivate: [AdminGuardService]},
     { path: 'user-messages', component: UserMessagesComponent, canActivate: [AdminGuardService]},
+    { path: 'user-feedbacks', component: UserFeedbackComponent, canActivate: [AdminGuardService]},
     { path: 'confirm-booking-list', component: ConfirmBookingComponent, canActivate: [AdminGuardService]}
   ]},
   {path: '**', component: HomeComponent, canActivate: [HomeGuardService]}

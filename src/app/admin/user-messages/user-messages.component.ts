@@ -30,7 +30,7 @@ export class UserMessagesComponent implements OnInit {
   ngOnInit() {
     this.ui.getMessagesList().subscribe(data => {
       this.messages = data;
-      // console.log(this.messages);
+      console.log(this.messages);
       if(this.messages.length > 0) {
         this.isData = true;
       }
