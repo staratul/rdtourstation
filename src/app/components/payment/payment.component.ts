@@ -51,10 +51,14 @@ export class PaymentComponent implements OnInit {
   }
 
   onSubmit(form) {
+    if(form.cardname == "" || form.cardnumber == "" || form.cvv == "" || form.expmonth == "" || form.expyear == "") {
+      alert("All fields are necessary");
+      return false;
+    }
     var today = new Date().toDateString();
     form["booking_date"] = today;
     form["booking_details"] = this.booking_details;
-    console.log(form);
+    // console.log(form);
     this.booking.confirmBooking(form);
     alert('You have done successfully.');
     window.location.href = "/";
